@@ -18,12 +18,12 @@ abstract class Emitter{
 		String type = m.getMessageType();
 		List<Listener> specific = _messageMap[type];
 		List<Listener> global = _messageMap["__global__"];
-		if(specific){
+		if(specific != null){
 			for(int i = 0; i < specific.length; i++){
 				specific[i].onMessageReceived(m);
 			}
 		}
-		if(global){
+		if(global != null){
 			for(int i = 0; i < global.length; i++){
 				global[i].onMessageReceived(m);
 			}
